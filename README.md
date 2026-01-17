@@ -1,7 +1,9 @@
 # TowersOfHanoi-EmbeddedSystem
-Towers of Hanoi game created for an embedded systems module - 2nd year Electronic and Electrical Engineering @ University of Leeds, UK.
+Towers of Hanoi game created for an embedded systems project in my 2nd year Electronic and Electrical Engineering degree @ University of Leeds, UK.
 
-## Required Technology
+NOTE: Due to Arm terminating the MBed OS and Platform, the code will probably require adapting to run on a different platform. The core mechanics of the code (the Towers of Hanoi game itself) should remain functional as it was developed in isolation of Mbed, but how the system interacts with the I/O devices is likely to require adaptation. 
+
+## Hardware
 - Nucleo Board: [STM32L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
 - LCD Screen: [Nokia 5110](https://wiki.geeetech.com/index.php/Nokia_5110_LCD_Module)
 - Joystick (Dual-axis w/ button - typically 5-pin)
@@ -9,15 +11,22 @@ Towers of Hanoi game created for an embedded systems module - 2nd year Electroni
 - Jumper wires for connections
 - Breadboard
 
-## Required Libraries
+## Software
+Programmed using [Mbed](https://os.mbed.com/)
+- Keil Studio Cloud (Online Compiler)
+- Mbed Studio (Desktop)
+
+### Required Libraries
 - [Joystick Driver](https://github.com/ELECXJEL2645/N5110)
 - [N5110 LCD Driver](https://github.com/ELECXJEL2645/N5110)
+- [MBed OS](https://github.com/ARMmbed/mbed-os/tree/master)
 
-## Video Demo
-[Video Demo](https://youtu.be/2UclU0JsHCk)
-
-## Game Rules
+## Project Information
+### Game Rules
 There are three pegs and a tower of concentrically smaller discs is constructed on one of the pegs. 
 The objective is to move the entire tower from one peg to another, but you can only move one disc at a time and you cannot place a larger disc ontop of a smaller disc. 
+
+### Video Demo
+[Video Demo](https://youtu.be/2UclU0JsHCk)
 
 _Note: All the code is in one file, as the concept of separating different sections hadn't fully sunk in yet. Apologies for 900 lines of code in one file and for a lack of commenting at points._
