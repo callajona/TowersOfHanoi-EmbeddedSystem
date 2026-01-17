@@ -1,7 +1,10 @@
-# TowersOfHanoi-EmbeddedSystem
+# Towers of Hanoi - Code (for Terminal Game & Embedded System)
 Towers of Hanoi game created for an embedded systems project in my 2nd year Electronic and Electrical Engineering degree @ University of Leeds, UK.
+Two versions:
+- Terminal Game: Representation of game displayed in the terminal, moves entered using keyboard
+- Embedded System: Peripheral I/O devices used to display the game (LCD screen) and move the discs (joystick) 
 
-NOTE: Due to Arm terminating the MBed OS and Platform, the code will probably require adapting to run on a different platform. The core mechanics of the code (the Towers of Hanoi game itself) should remain functional as it was developed in isolation of Mbed, but how the system interacts with the I/O devices is likely to require adaptation. 
+NOTE: Due to Arm terminating the MBed OS and Platform, the emdedded system code will require adapting to run on a different platform. The core mechanics of the code (the Towers of Hanoi game itself - as shown in the terminal version) should remain functional as it was developed in isolation of Mbed, but how the system interacts with the I/O devices is likely to require adaptation. 
 
 ## Hardware
 - Nucleo Board: [STM32L476RG](https://www.st.com/en/evaluation-tools/nucleo-l476rg.html)
