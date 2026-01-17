@@ -1,15 +1,33 @@
+// -------------------------------------
+//   Towers of Hanoi - Terminal Output
+// -------------------------------------
+//    Creator: Jonathan Calladine
+//       Date: Summer 2023
+// -------------------------------------
+
+// --------------------------------------------------------------------------------------------------------------
+//  Towers of Hanoi playable in the terminal.
+//  Pegs displayed as three arrays, numbers represent the size of the disc
+//  Moves made by entering two pegs: the peg to move from and the peg to move to
+//  If the move is invalid (larger disc placed on a smaller one), an error will display and nothing will change
+//  If the move is valid, the arrays will update
+//
+//  Number of Discs can be selected
+//  Game will tell you when it has been solved correctly and display the number of moves made
+// --------------------------------------------------------------------------------------------------------------
+
 #include <iostream>
 
-// create peg arrays = global variables 
+// Create peg arrays [global variables]
   int peg1[7];
   int peg2[7];
   int peg3[7];
 
-// Funtion proto-types
-void display_game(int no_discs);
-int first_non_zero_element(int peg,int no_discs);
-void move(int pegA, int pegB, int no_discs);
-bool gameWin(int no_discs);
+// --- Funtion Prototypes ---
+void display_game(int no_discs); // Function to display the game to terminal
+int first_non_zero_element(int peg,int no_discs); // Find the top disc on a peg = first non-zero element in an array
+void move(int pegA, int pegB, int no_discs); // Funciton to move discs between pegs
+bool gameWin(int no_discs); // Checks if game completed
 
 int main() {
   // create arrays with variable number of discs
@@ -293,29 +311,29 @@ void display_game(int no_discs) {
 }
 
 bool gameWin(int no_discs) {
-  // game won when tower reconstructed on new peg
-  // tower reconstructed means sum of two arrays = 0 and the other array will contain all the elements
-  // 5 discs, therefore: triangular number of 5: 1+2+3+4+5 = 15
+  // The game is won when the tower reconstructed on new peg
+  // Therefore two arrays must contain all zeros and the other array will contain all the elements
+  // Therefore, sum each array, if one array = triangular number for the number of discs --> game complete
+  //  - e.g. 5 discs --> triangular number of 5 --> 1+2+3+4+5 = 15 -->  Sum arrays and check if == 15 --> win
 
   // initialise variables
-  bool gameStatus = false;
-  int sum2 = 0;
-  int sum3 = 0;
+  bool gameStatus = false; // Init gameStatus variable to declare if game won (TRUE) or unsolved (FALSE)
+  int sum2 = 0; // Valiables for sum of elements in 2nd array 
+  int sum3 = 0; // Valiables for sum of elements in 3rd array
+  // NB: sum1 not included as tower must me constructed on new peg
 
-  int winning_sum[8] = {0,1,3,6,10,15,21,28};
+  int winning_sum[8] = {0,1,3,6,10,15,21,28}; // Array containing winning scores for 0-7 discs
 
-  // create sum of each array
+  // Sum all the elements in each array
   for (int i = 0; i < no_discs; i++) {
     sum2 = sum2 + peg2[i];
     sum3 = sum3 + peg3[i];
   }
 
-  // test if either are 15
+  // Compare both sums to winning scores
   if (sum2 == winning_sum[no_discs] || sum3 == winning_sum[no_discs]) {
     gameStatus = true;
   }
   
   return gameStatus;
-
-  // NB: sum1 not included as tower must me constructed on new peg
 }
